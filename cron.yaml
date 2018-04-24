@@ -1,0 +1,15 @@
+cron:
+- description: refresh network details
+  url: /cron/refreshNetworks
+  schedule: every day 00:01
+
+- description: refresh device details
+  url: /cron/refreshDevices
+  schedule: every day 00:15
+
+- description: refresh client details
+  url: /cron/refreshClients
+  schedule: every 30 minutes
+  retry_parameters:
+    min_backoff_seconds: 60
+    max_doublings: 5

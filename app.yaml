@@ -1,0 +1,46 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /slack/event
+  script: src.main.app
+  secure: always
+
+- url: /slack/action-endpoint
+  script: src.main.app
+  secure: always
+
+- url: /cron/refreshNetworks
+  script: src.main.app
+  login: admin
+
+- url: /cron/refreshClients
+  script: src.main.app
+  login: admin
+
+- url: /cron/refreshDevices
+  script: src.main.app
+  login: admin
+
+- url: /_ah/queue/refreshNetworks
+  script: src.main.app
+  login: admin
+
+- url: /_ah/queue/refreshDevices
+  script: src.main.app
+  login: admin
+
+- url: /_ah/queue/refreshClients
+  script: src.main.app
+  login: admin
+
+- url: /.*
+  script: src.main.app
+  secure: always
+  login: admin
+
+
+libraries:
+- name: ssl
+  version: "2.7.11"

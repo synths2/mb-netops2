@@ -1,0 +1,6 @@
+queue:
+- name: refreshNetworks
+
+- name: refreshDevices
+
+- name: refreshClients
